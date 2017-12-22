@@ -1,7 +1,5 @@
 package arraysAndStrings;
 
-import java.util.ArrayList;
-import java.util.List;
 /*
 1.3 URLify: Write a method to replace all spaces in a string with '%20'. You may assume that the string
 has sufficient space at the end to hold the additional characters, and that you are given the "true"
@@ -15,22 +13,43 @@ Hints: #53, # 118
 public class URLify {
 
 	public static void main(String[] args) {
-		algorithmToConvertToUrl("Mr John Smith   ", 13);
+		algorithmToConvertToUrlifyUsingCharArray("Mr John Smith    ", 13);
+		algorithmToConvertToUrlUsingStringBuilder("Mr John Smith   ", 13);
 	}
 
-	private static void algorithmToConvertToUrl(String s, int len) {
-		List<Character> chars = new ArrayList<Character>();
-		for (int i = 0; i < len; i++) {
-			if(s.charAt(i) != ' ') {
-				chars.add(s.charAt(i));
-			} else {
-				chars.add('%');
-				chars.add('2');
-				chars.add('0');
+	private static void algorithmToConvertToUrlifyUsingCharArray(String string, int trueLength) {
+		char[] str = string.toCharArray();
+		int spaces = 0;
+		for (int i = 0; i < trueLength; i++) {
+			if (str[i] == ' ') {
+				spaces++;
 			}
 		}
-		for (Character character : chars) {
-			System.out.print(character);
+		int urlLength = trueLength + spaces * 2;
+		for (int i = trueLength - 1; i >= 0; i--) {
+			if (str[i] != ' ')
+				str[--urlLength] = str[i];
+			else {
+				str[--urlLength] = '0';
+				str[--urlLength] = '2';
+				str[--urlLength] = '%';
+			}
 		}
+		System.out.print("Urlify using char array: ");
+		for (char c : str) {
+			System.out.print(c);
+		}
+	}
+
+	private static void algorithmToConvertToUrlUsingStringBuilder(String s, int len) {
+		StringBuilder url = new StringBuilder();
+		for (int i = 0; i < len; i++) {
+			if (s.charAt(i) != ' ') {
+				url.append(s.charAt(i));
+			} else {
+				url.append("%20");
+			}
+		}
+		System.out.println("\nUrlify using StringBuilder: " + url.toString());
 	}
 }

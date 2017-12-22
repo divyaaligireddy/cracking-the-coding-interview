@@ -20,6 +20,7 @@ public class IsUnique {
 			for (int i = 0; i < s.length(); i++) {
 				if (b[s.charAt(i)] == Boolean.TRUE) {
 					isUnique = Boolean.FALSE;
+					break;
 				} else
 					b[s.charAt(i)] = Boolean.TRUE;
 			}
