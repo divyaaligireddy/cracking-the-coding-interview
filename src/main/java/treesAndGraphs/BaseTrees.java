@@ -22,8 +22,8 @@ public class BaseTrees {
 		/*
 		 * Structure of the Base Tree 
 		 *      	   7
-		 *  	  /    |    \ 
-		 * 	   	16 	   19   13
+		 *        /    |    \ 
+		 *      16     19   13
 		 *    /   \   /  \  | 
 		 *   3   24  28 22  34 
 		 *   |    |    /  \ | 
