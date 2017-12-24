@@ -1,4 +1,6 @@
-package others;
+package sortingAlgorithms;
+
+import java.util.Arrays;
 
 /*Bubble Sort is the sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.*/
 
@@ -9,7 +11,7 @@ public class BubbleSort {
 		int temp;
 		Boolean swapped = Boolean.FALSE;
 		System.out.println("Array is: ");
-		printArray(arr);
+		System.out.println(Arrays.toString(arr));
 		for (int i = 0; i < arr.length - 1; i++) {
 			swapped = Boolean.FALSE;
 			for (int j = 0; j < arr.length - i - 1; j++) {
@@ -25,12 +27,6 @@ public class BubbleSort {
 				break;
 		}
 		System.out.println("\n\nSorted array: ");
-		printArray(arr);
-	}
-
-	private static void printArray(Integer[] arr) {
-		for (int i = 0; i < arr.length; i++)
-			System.out.print(arr[i] + " ");
-
+		System.out.println(Arrays.toString(arr));
 	}
 }
