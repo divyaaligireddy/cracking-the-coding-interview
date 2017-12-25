@@ -6,12 +6,17 @@ public class BinaryTreeNode {
 	public BinaryTreeNode left;
 	public BinaryTreeNode right;
 	public State state;
+	public BinaryTreeNode parent;
 
 	public BinaryTreeNode(int value, BinaryTreeNode left, BinaryTreeNode right) {
 		this.value = value;
 		this.left = left;
 		this.right = right;
 		this.state = State.unvisited;
+		if (this.left != null)
+			this.left.parent = this;
+		if (this.right != null)
+			this.right.parent = this;
 	}
 
 	public BinaryTreeNode(int value) {

@@ -3,6 +3,8 @@ package treesAndGraphs;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import org.apache.commons.collections4.CollectionUtils;
+
 public class BfsAndDfs {
 
 	public static void main(String[] args) {
@@ -12,7 +14,7 @@ public class BfsAndDfs {
 		depthFirstSearch(BaseTrees.getBaseTree());
 	}
 
-	private static void depthFirstSearch(Node node) {
+	public static void depthFirstSearch(Node node) {
 		if (node != null) {
 			System.out.print(node.value + " ");
 			node.state = State.visited;
@@ -22,15 +24,19 @@ public class BfsAndDfs {
 		}
 	}
 
-	private static void breadthFirstSearch(Node node) {
+	public static void breadthFirstSearch(Node node) {
 		Queue<Node> queue = new LinkedList<>();
 		queue.add(node);
 		while (!queue.isEmpty()) {
 			Node item = queue.poll();
-			item.state = State.visited;
-			System.out.print(item.value + " ");
-			for (Node child : item.getChildren()) {
-				queue.add(child);
+			if (item.state == State.unvisited) {
+				item.state = State.visited;
+				System.out.print(item.value + " ");
+				if (!CollectionUtils.isEmpty(item.getChildren())) {
+					for (Node child : item.getChildren()) {
+						queue.add(child);
+					}
+				}
 			}
 		}
 	}
