@@ -44,7 +44,7 @@ public class RouteBetweenNodes {
 				+ findRouteWithDFS(node1, node23));
 	}
 
-	private static boolean findRouteWithDFS(Node start, Node end) {
+	public static boolean findRouteWithDFS(Node start, Node end) {
 		boolean route = false;
 		if (start == null)
 			return false;
@@ -60,6 +60,25 @@ public class RouteBetweenNodes {
 					if (route)
 						return true;
 				}
+			}
+			return route;
+		}
+	}
+
+	public static boolean findRouteWithDFS(BinaryTreeNode start, BinaryTreeNode end) {
+		boolean route = false;
+		if (start == null)
+			return false;
+		else {
+			start.state = State.visited;
+			for (BinaryTreeNode child : start.getChildren()) {
+				if (child == end)
+					route = true;
+				else {
+					route = findRouteWithDFS(child, end);
+				}
+				if (route)
+					return true;
 			}
 			return route;
 		}

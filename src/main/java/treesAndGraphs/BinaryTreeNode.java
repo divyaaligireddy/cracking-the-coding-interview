@@ -1,5 +1,8 @@
 package treesAndGraphs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinaryTreeNode {
 
 	public int value;
@@ -24,6 +27,15 @@ public class BinaryTreeNode {
 		this.left = null;
 		this.right = null;
 		this.state = State.unvisited;
+	}
+
+	public List<BinaryTreeNode> getChildren() {
+		List<BinaryTreeNode> children = new ArrayList<>();
+		if (this.left != null)
+			children.add(this.left);
+		if (this.right != null)
+			children.add(this.right);
+		return children;
 	}
 
 }

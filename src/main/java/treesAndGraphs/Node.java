@@ -1,6 +1,7 @@
 package treesAndGraphs;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Node {
@@ -18,8 +19,10 @@ public class Node {
 		this.value = value;
 		this.children = children;
 		this.state = State.unvisited;
-		for (Node child : this.children) {
-			child.parent = this;
+		if (this.children != null) {
+			for (Node child : this.children) {
+				child.parent = this;
+			}
 		}
 	}
 
@@ -38,7 +41,10 @@ public class Node {
 	}
 
 	public List<Node> getChildren() {
-		return this.children;
+		if (this.children != null)
+			return this.children;
+		else
+			return Collections.emptyList();
 	}
 
 }

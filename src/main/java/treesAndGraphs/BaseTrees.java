@@ -39,6 +39,7 @@ public class BaseTrees {
 		BinaryTreeNode root = new BinaryTreeNode(1, node2, node3);
 		System.out.println("Inorder traversal of Binary Tree: ");
 		printInOrderTree(root);
+		System.out.println();
 		return root;
 	}
 
@@ -52,6 +53,7 @@ public class BaseTrees {
 		BinaryTreeNode root = new BinaryTreeNode(8, node2, node3);
 		System.out.println("Inorder traversal of BST: ");
 		printInOrderTree(root);
+		System.out.println();
 		return root;
 	}
 
@@ -61,7 +63,6 @@ public class BaseTrees {
 		printInOrderTree(root.left);
 		System.out.print(root.value + " ");
 		printInOrderTree(root.right);
-
 	}
 
 	public static void main(String[] args) {
