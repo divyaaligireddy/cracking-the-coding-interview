@@ -2,18 +2,18 @@ package treesAndGraphs;
 
 import java.util.Random;
 
-class TreeNode {
+class RandomTreeNode {
 	private int data;
-	public TreeNode left;
-	public TreeNode right;
+	public RandomTreeNode left;
+	public RandomTreeNode right;
 	private int size = 0;
 
-	public TreeNode(int d) {
+	public RandomTreeNode(int d) {
 		data = d;
 		size = 1;
 	}
 
-	public TreeNode getRandomNode() {
+	public RandomTreeNode getRandomNode() {
 		int leftSize = left == null ? 0 : left.size();
 		Random random = new Random();
 		int index = random.nextInt(size);
@@ -29,13 +29,13 @@ class TreeNode {
 	public void insertInOrder(int d) {
 		if (d <= data) {
 			if (left == null) {
-				left = new TreeNode(d);
+				left = new RandomTreeNode(d);
 			} else {
 				left.insertInOrder(d);
 			}
 		} else {
 			if (right == null) {
-				right = new TreeNode(d);
+				right = new RandomTreeNode(d);
 			} else {
 				right.insertInOrder(d);
 			}
@@ -51,7 +51,7 @@ class TreeNode {
 		return data;
 	}
 
-	public TreeNode find(int d) {
+	public RandomTreeNode find(int d) {
 		if (d == data) {
 			return this;
 		} else if (d <= data) {
@@ -63,14 +63,14 @@ class TreeNode {
 	}
 
 	public static void main(String[] args) {
-		TreeNode treeNode = new TreeNode(8);
+		RandomTreeNode treeNode = new RandomTreeNode(8);
 		treeNode.insertInOrder(4);
 		treeNode.insertInOrder(12);
 		treeNode.insertInOrder(1);
 		treeNode.insertInOrder(13);
 		treeNode.insertInOrder(5);
 		treeNode.insertInOrder(14);
-		TreeNode randomNode = treeNode.getRandomNode();
+		RandomTreeNode randomNode = treeNode.getRandomNode();
 		System.out.println(randomNode.data);
 	}
 }
